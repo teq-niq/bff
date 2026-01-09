@@ -43,7 +43,7 @@ mvn -pl okta-setup-4-oidc exec:java -Dexec.mainClass=com.example.Setup -Dokta.te
 
 ## Teardown
 
-mvn -pl okta-setup-4-oidc exec:java -Dexec.mainClass=com.example.Teardown -Dokta.tenant.id=[okta tenant id] -Dokta.api.token=[Okta API Token] -Ddummy.pwd=[Dummy pwd]
+mvn -pl okta-setup-4-oidc exec:java -Dexec.mainClass=com.example.Teardown -Dokta.tenant.id=[okta tenant id] -Dokta.api.token=[Okta API Token]
 
 
 
