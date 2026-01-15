@@ -549,7 +549,8 @@ You can find the details in the following files:
 - `bff\bff-spring-projs\spring.simple.bff\src\main\java\com\example\demo\SpringdocConfig.java`
 
 Specifically, check the `customOpenAPI` method in each class to see how the BFF plugin is integrated with springdoc.  
-
+
+
 
 
 
@@ -559,5 +560,6 @@ Specifically, check the `customOpenAPI` method in each class to see how the BFF 
 This demo does not currently coordinate HTTP session timeouts with access token or refresh token lifetimes.  
 Implementing this correctly depends on the specific requirements and constraints of each application, so it would need to be handled flexibly and thoughtfully.  
 It may be included in a future version.  
-- Spring Boot 4 Migration: The project currently leverages the latest stable Spring Boot 3.x line. While Spring Boot 4.0 (released Nov 2025) is the new major generation, we have opted for the mature 3.x ecosystem to ensure maximum compatibility with existing OIDC and Swagger dependencies. A migration is planned for later.
+- Spring Boot 4 migration: The project currently uses the latest stable Spring Boot 3.x release. Although Spring Boot 4.0 (released November 2025) introduces the next major generation, have intentionally remained on 3.x to ensure compatibility with existing OIDC and Swagger dependencies. In particular, the current com.okta.spring:okta-spring-boot-starter does not yet support Spring Boot 4.x and depends on APIs removed in Boot 4. A migration to Spring Boot 4 is planned once Okta provides an officially compatible 4.x starter.
+
 
