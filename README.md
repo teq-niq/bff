@@ -89,9 +89,10 @@ Like I said this will be a long build.
 There are ways to speed up the build.
 Also its a lot easier when using an IDE and using dev mode - 4200/4201 for angular and 3200/3201 for swagger. Will explain more later.
 
-### Run the angular application
+### Run the oidc application
 mvn -pl bff-spring-projs/spring.oidc.bff spring-boot:run -P berun -Dokta.tenant.id=[TENANT_ID] -Dokta.oauth2.client-id=[CLIENT_ID] -Dokta.oauth2.client-secret=[CLIENT_SECRET]
 
+#### Run the BFF based Angular UI
 
 Visit http://localhost:8081/   
 
@@ -101,7 +102,7 @@ For a quick look at related screen flows including Authorization code flow login
  [Quick Checks](./oidc_angular_app.MD) .    
 
 
-### Run the BFF based Swagger UI
+#### Run the BFF based Swagger UI
 This is the main part.   
 I have leveraged the swagger UI plugin architecture and added this BFF plugin.  
 
@@ -560,6 +561,6 @@ Specifically, check the `customOpenAPI` method in each class to see how the BFF 
 This demo does not currently coordinate HTTP session timeouts with access token or refresh token lifetimes.  
 Implementing this correctly depends on the specific requirements and constraints of each application, so it would need to be handled flexibly and thoughtfully.  
 It may be included in a future version.  
-- Spring Boot 4 migration: The project currently uses the latest stable Spring Boot 3.x release. Although Spring Boot 4.0 (released November 2025) introduces the next major generation, we have intentionally remained on 3.x to ensure compatibility with existing OIDC and Swagger dependencies. In particular, the current com.okta.spring:okta-spring-boot-starter does not yet support Spring Boot 4.x and depends on APIs removed in Boot 4. A migration to Spring Boot 4 is planned once Okta provides an officially compatible 4.x starter.
+- Spring Boot 4 migration: A manual Spring Security OIDC configuration could enable Spring Boot 4 today, but this would replace the Okta starter with custom code. We have deferred this until official Okta support is available.
 
 
