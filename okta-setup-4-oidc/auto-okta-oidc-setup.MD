@@ -22,7 +22,7 @@ Will need to use your password and okta verify token,
 That should reach you to   
 https://trial-999999-admin.okta.com/admin/getting-started   
 OR to   
-https://integrator-4588018-admin.okta.com/admin/getting-started   
+https://integrator-999999-admin.okta.com/admin/getting-started   
 
 I have used the trial account more and only just started using the integrator account.   
 

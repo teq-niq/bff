@@ -10,7 +10,9 @@
 3. Set up your password.   
 4. Install **Okta Verify** on your mobile device.   
 
-lets say ur tenant id is trial-9999999 OR integrator-9999999   
+lets say ur tenant id is trial-9999999 OR integrator-9999999  
+
+9999999 is only a placeholder for the actual digits.   
 
 Visit https://trial-9999999.okta.com OR   
 https://integrator-9999999.okta.com   
@@ -20,7 +22,7 @@ Will need to use your password and okta verify token,
 That should reach you to   
 https://trial-999999-admin.okta.com/admin/getting-started   
 OR to   
-https://integrator-4588018-admin.okta.com/admin/getting-started   
+https://integrator-999999-admin.okta.com/admin/getting-started   
 
 I have used the trial account more and only just started using the integrator account. 
 

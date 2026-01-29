@@ -1,3 +1,6 @@
+This project is called BFF because it demonstrates Backend-for-Frontend (BFF) security patterns, particularly with OIDC.
+It also explores BFF-style integrations in Swagger using Swagger UI’s plugin mechanism—ideas I hope will eventually influence mainstream Swagger UI.
+
 # Introduction – BFF (Backend for Frontend)
 
 When working with OIDC for web applications in general, the Authorization Code flow is preferred.  
@@ -300,6 +303,7 @@ we should be back at
 <img src="images/simple-swagger-bff-home.png" alt="swagger with bff" width="400" />   
 
 Notice how the locks are unlocked.  
+Feel free to try out the various functionalities.   
 
 
 

@@ -19,7 +19,7 @@
 		<use-swagger-extn-skip>false</use-swagger-extn-skip>
 		<spring.boot.version>3.5.9</spring.boot.version>
 		<effective-assemble-swagger-extn-skip>${assemble-swagger-extn-skip}</effective-assemble-swagger-extn-skip>
-		<sw.ui.version>5.30.3</sw.ui.version>
+		<sw.ui.version>5.31.0</sw.ui.version>
 		<effective-sw.ui.version>${sw.ui.version}</effective-sw.ui.version>
 	</properties>
 	<url/>
