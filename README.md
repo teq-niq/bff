@@ -36,7 +36,7 @@ ensuring that the BFF behavior is integrated cleanly rather than through ad-hoc 
 
 **To the best of my knowledge, this is the first fully working Swagger UI plugin designed specifically for BFF architectures.It relies purely on Swagger UI’s extension mechanism and does not require proxying, spec transformation, or token handling in the UI.While this project demonstrates the approach using Java and Spring, the plugin itself is backend- and language-agnostic and can be used with any platform that serves Swagger UI (Java, .NET, Python, and others)**  
 
-The Maven build process is slightly complex. This complexity comes from a setup where a specified version of Swagger UI is downloaded and then extended by merging custom Swagger UI extensions. Because of this, and the fact that we are building multiple projects the build process is somewhat slow. 
+The Maven build process is slightly time-consuming. This slowness comes from a setup where a specified version of Swagger UI is downloaded and then extended by merging custom Swagger UI extensions. Because of this, and the fact that we are building multiple projects the build process is somewhat slow. 
 
 The build process also demonstrating compatibility with multiple recent Swagger UI versions.
 
