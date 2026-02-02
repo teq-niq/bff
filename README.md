@@ -1,6 +1,18 @@
 This project is called BFF because it demonstrates Backend-for-Frontend (BFF) security patterns, particularly with OIDC.
 It also explores BFF-style integrations in Swagger using Swagger UI’s plugin mechanism—ideas I hope will eventually influence mainstream Swagger UI.
 
+![OpenAPI](https://img.shields.io/badge/OpenAPI-3.x-green?style=flat-square)
+![Swagger UI](https://img.shields.io/badge/Swagger-UI-brightgreen?style=flat-square)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=flat-square)
+![Spring Security](https://img.shields.io/badge/Spring%20Security-enabled-brightgreen?style=flat-square)
+![OIDC](https://img.shields.io/badge/Security-OIDC-blue?style=flat-square)
+![Okta](https://img.shields.io/badge/Security-Okta-blue?style=flat-square)
+![Java](https://img.shields.io/badge/Java-24-blue?style=flat-square)
+![Maven](https://img.shields.io/badge/Build-Maven-red?style=flat-square)
+![React](https://img.shields.io/badge/React-blue?style=flat-square)
+
+*React is used for custom Swagger UI extensions to integrate BFF features.*
+
 # Introduction – BFF (Backend for Frontend)
 
 When working with OIDC for web applications in general, the Authorization Code flow is preferred.  
