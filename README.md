@@ -6,7 +6,7 @@ It also explores BFF-style integrations in Swagger using Swagger UI’s plugin m
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=flat-square)
 ![Spring Security](https://img.shields.io/badge/Spring%20Security-enabled-brightgreen?style=flat-square)
 ![OIDC](https://img.shields.io/badge/Security-OIDC-blue?style=flat-square)
-![Okta](https://img.shields.io/badge/Security-Okta-blue?style=flat-square)
+![Okta](https://img.shields.io/badge/Security-Okta-blue?style=flat-square)   
 ![Java](https://img.shields.io/badge/Java-24-blue?style=flat-square)
 ![Angular](https://img.shields.io/badge/Angular-red?style=flat-square)
 ![Node.js](https://img.shields.io/badge/Node.js-blue?style=flat-square)
