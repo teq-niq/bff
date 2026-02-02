@@ -8,6 +8,8 @@ It also explores BFF-style integrations in Swagger using Swagger UI’s plugin m
 ![OIDC](https://img.shields.io/badge/Security-OIDC-blue?style=flat-square)
 ![Okta](https://img.shields.io/badge/Security-Okta-blue?style=flat-square)
 ![Java](https://img.shields.io/badge/Java-24-blue?style=flat-square)
+![Angular](https://img.shields.io/badge/Angular-red?style=flat-square)
+![Node.js](https://img.shields.io/badge/Node.js-blue?style=flat-square)
 ![Maven](https://img.shields.io/badge/Build-Maven-red?style=flat-square)
 ![React](https://img.shields.io/badge/React-blue?style=flat-square)
 
