@@ -1,7 +1,7 @@
 This project is called BFF because it demonstrates Backend-for-Frontend (BFF) security patterns, particularly with OIDC.
 It also explores BFF-style integrations in Swagger using Swagger UI’s plugin mechanism—ideas I hope will eventually influence mainstream Swagger UI.
 
-<!-- First row: full width -->
+
 <p align="center">
   ![OpenAPI](https://img.shields.io/badge/OpenAPI-3.x-green?style=flat-square)
   ![Swagger UI](https://img.shields.io/badge/Swagger-UI-brightgreen?style=flat-square)
@@ -11,20 +11,17 @@ It also explores BFF-style integrations in Swagger using Swagger UI’s plugin m
   ![Okta](https://img.shields.io/badge/Security-Okta-blue?style=flat-square)
 </p>
 
-<!-- Second row: left-right split -->
-<table width="100%">
-  <tr>
-    <td align="left">
-      ![Java](https://img.shields.io/badge/Java-24-blue?style=flat-square)
-      ![Angular](https://img.shields.io/badge/Angular-red?style=flat-square)
-      ![Node.js](https://img.shields.io/badge/Node.js-blue?style=flat-square)
-      ![React](https://img.shields.io/badge/React-blue?style=flat-square)
-    </td>
-    <td align="right">
-      ![Maven](https://img.shields.io/badge/Build-Maven-red?style=flat-square)
-    </td>
-  </tr>
-</table>
+
+<p align="left">
+  ![Java](https://img.shields.io/badge/Java-24-blue?style=flat-square)
+  ![Angular](https://img.shields.io/badge/Angular-red?style=flat-square)
+  ![Node.js](https://img.shields.io/badge/Node.js-blue?style=flat-square)
+  ![React](https://img.shields.io/badge/React-blue?style=flat-square)
+</p>
+
+<p align="right">
+  ![Maven](https://img.shields.io/badge/Build-Maven-red?style=flat-square)
+</p>
 
 
 *React is used for custom Swagger UI extensions to integrate BFF features.*
