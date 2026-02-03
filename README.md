@@ -17,11 +17,12 @@ It also explores BFF-style integrations in Swagger using Swagger UI’s plugin m
 
 
 
-*React is used for custom Swagger UI extensions to integrate BFF features.*
-
 # Swagger UI BFF Illustration    
 
 <img src="images/output.gif" alt="swagger ui with bff" width="600"/> 
+
+
+*React is used for custom Swagger UI extensions to integrate BFF features.*
 
 # Introduction – BFF (Backend for Frontend)
 
