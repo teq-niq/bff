@@ -19,6 +19,10 @@ It also explores BFF-style integrations in Swagger using Swagger UI’s plugin m
 
 *React is used for custom Swagger UI extensions to integrate BFF features.*
 
+# Swagger UI BFF Illustration    
+
+<img src="images/output.gif" alt="swagger ui with bff" /> 
+
 # Introduction – BFF (Backend for Frontend)
 
 When working with OIDC for web applications in general, the Authorization Code flow is preferred.  
