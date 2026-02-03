@@ -21,7 +21,7 @@ It also explores BFF-style integrations in Swagger using Swagger UI’s plugin m
 
 # Swagger UI BFF Illustration    
 
-<img src="images/output.gif" alt="swagger ui with bff" /> 
+<img src="images/output.gif" alt="swagger ui with bff" width="850"/> 
 
 # Introduction – BFF (Backend for Frontend)
 
