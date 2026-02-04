@@ -98,11 +98,15 @@ Prerequisites:
 - Springdoc
 - swagger ui - 5.30.1 to 5.31.0
 
+Maven version is particularly important.  
+
 ## Okta OIDC Setup
 *   Manual
     *   [Manual Okta OIDC Setup Steps](okta-setup-4-oidc/manual-okta-oidc-setup.MD)
 *   Automated
     *   [Automatic Okta OIDC Setup Steps](okta-setup-4-oidc/auto-okta-oidc-setup.MD)
+    
+If following the automatic setup do first ensure "Full build" step mentioned just below.   
     
 
 
@@ -289,6 +293,7 @@ Sign out will do the expected.
 
 I realise this document is getting longer. So will focus on the login and logout process. Will leave it to the reader to try the APIs and verify the expectations.  
 
+Visit //localhost:8080/swagger-ui.html
 
 <img src="images/simple-swagger-bff-home.png" alt="swagger with bff" width="400" /> 
 

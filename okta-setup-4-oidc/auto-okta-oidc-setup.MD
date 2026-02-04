@@ -40,6 +40,10 @@ API calls made with this token must originate from : Any IP
 
 mvn -pl okta-setup-4-oidc exec:java -Dexec.mainClass=com.example.Setup -Dokta.tenant.id=[okta tenant id] -Dokta.api.token=[Okta API Token] -Ddummy.pwd=[Dummy password]
 
+This will create two users alongwith other aspects of the setup:   
+- user@example.com    
+- admin@example.com    
+
 
 ## Teardown
 
