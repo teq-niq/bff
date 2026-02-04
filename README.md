@@ -468,7 +468,9 @@ Notes:
 The swagger ui related build is expecting git to be in the Path.  
 We also do not use the OS Path.   
 In the files - swagger-ui-shell.bat/.sh there is a GIT_HOME variable used for construction the Path variable specific to as needed by the node, npm etc setup by the project independent of OS Path.   
-As long as you ensure an environment variable named GIT_HOME expect this shell to work without issues.  
+As long as you ensure an environment variable named GIT_HOME expect this shell to work without issues.
+
+Git doesn’t really use GIT_HOME, but ur script wants it. This way we control the PATH more explicitly.   
   
 
 Another variable you may see in the files  swagger-ui-shell.bat/.sh and angularshell.bat/.sh is VS_CODE_HOME. 
