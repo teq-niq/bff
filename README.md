@@ -123,6 +123,8 @@ Also its a lot easier when using an IDE and using dev mode - 4200/4201 for angul
 ### Run the oidc application
 mvn -pl bff-spring-projs/spring.oidc.bff spring-boot:run -P berun -Dokta.tenant.id=[TENANT_ID] -Dokta.oauth2.client-id=[CLIENT_ID] -Dokta.oauth2.client-secret=[CLIENT_SECRET]
 
+**Note**: Users you will login with will be the users you created during the manual or automated setup steps.    
+
 #### Run the BFF based Angular UI
 
 Visit http://localhost:8081/   
