@@ -267,7 +267,7 @@ API wise this will be similar to the OIDC app.However there will be no concept o
 Foo and Bar wont be found. Other functionality will be the same with just the difference in how login is done.  
 This time the application runs of port 8080. 
 
-Note: Users you will login with will be  as defined in bff-spring-projs\spring.simple.bff\src\main\java\com\example\demo\SecurityConfiguration.java  userDetailsService method.   
+**Note**: Users you will login with will be  as defined in bff-spring-projs\spring.simple.bff\src\main\java\com\example\demo\SecurityConfiguration.java  userDetailsService method.   
 
 #### BFF Angular app
 
