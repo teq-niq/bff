@@ -44,7 +44,8 @@ Modern web security has moved away from "tokens in the browser." To combat XSS a
 * **Auth0** notes in their [BFF overview](https://auth0.com/blog/the-backend-for-frontend-pattern-bff/) that the pattern is essential to mitigate risks inherent in handling access tokens from public clients.
 * **Okta** recommends the [BFF model](https://developer.okta.com/docs/concepts/manage-user-creds/#backend-for-frontend-model) to centralize token management on a trusted server, stating that it *"centralizes all token management on a single, trusted server, reducing the attack surface and making the entire system more resilient to client-side attacks."*
 
-
+What we now call the BFF pattern is not entirely new. Many earlier web systems already followed these principles out of common sense—sessions, cookies, and server-side control.   
+The rise of pure SPAs pushed authentication and tokens into the browser, and BFF can be seen as a corrective step back toward proven practices.   
 
 ---
 
