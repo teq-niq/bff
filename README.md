@@ -42,6 +42,8 @@ This project demonstrates the BFF pattern through two setups:
 Modern web security has moved away from "tokens in the browser." To combat XSS and navigate shifting browser privacy rules, the Backend-for-Frontend (BFF) pattern has become the gold standard. Industry authorities are now clear on this shift:
 * **The IETF (Internet Engineering Task Force)** highlights in their [latest OAuth 2.0 guidance](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps) that using a BFF to issue secure, `HttpOnly` cookies is the best way to prevent token exfiltration.
 * **Auth0** notes in their [BFF overview](https://auth0.com/blog/the-backend-for-frontend-pattern-bff/) that the pattern is essential to mitigate risks inherent in handling access tokens from public clients.
+* **Okta** recommends the [BFF model](https://developer.okta.com/docs/concepts/manage-user-creds/#backend-for-frontend-model) to centralize token management on a trusted server, stating that it *"centralizes all token management on a single, trusted server, reducing the attack surface and making the entire system more resilient to client-side attacks."*
+Why this Okta quote is a "Killer Add":
 
 
 ---
