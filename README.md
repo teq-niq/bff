@@ -38,6 +38,12 @@ This project demonstrates the BFF pattern through two setups:
 - An OIDC-based application with an Angular frontend and a Spring Boot (Java) backend  
 - A Spring Boot application with an Angular frontend using simpler Spring Security (non-OIDC)
 
+
+Modern web security has moved away from "tokens in the browser." To combat XSS and navigate shifting browser privacy rules, the Backend-for-Frontend (BFF) pattern has become the gold standard. Industry authorities are now clear on this shift:
+* **The IETF (Internet Engineering Task Force)** highlights in their [latest OAuth 2.0 guidance](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-browser-based-apps) that using a BFF to issue secure, `HttpOnly` cookies is the best way to prevent token exfiltration.
+* **Auth0** notes in their [BFF overview](https://auth0.com/blog/the-backend-for-frontend-pattern-bff/) that the pattern is essential to mitigate risks inherent in handling access tokens from public clients.
+
+
 ---
 
 # Swagger and BFF
