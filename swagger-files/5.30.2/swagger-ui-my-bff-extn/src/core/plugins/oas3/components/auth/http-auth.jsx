@@ -27,7 +27,6 @@ export default class HttpAuth extends React.Component {
   getValue () {
     let { name, authorized } = this.props
 	const valx= authorized && authorized.getIn([name, "value"]);
-	console.log("HttpAuth getValue here", name, JSON.stringify(valx, null, 2));
     return valx
   }
 
@@ -158,7 +157,6 @@ export default class HttpAuth extends React.Component {
 	  const redirectforlogin = schema.get("redirectforlogin") === true
 
 	  if (!username && redirectforlogin && loginUrl) {
-	    console.log("Redirecting to BFF login:", loginUrl)
 	    setTimeout(() => {
 	      window.location.href = loginUrl
 	    }, 50)

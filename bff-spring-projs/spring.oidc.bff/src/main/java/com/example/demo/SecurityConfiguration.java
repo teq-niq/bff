@@ -139,33 +139,22 @@ public class SecurityConfiguration {
 			
 			http=http.cors(corsCustomizer);
 			http=http
-				    
 				    .csrf(csrf -> 
 				    		csrf
 				    		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-				    		
 				    		.csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler()) 
-				    		//.csrfTokenRequestHandler(new XorCsrfTokenRequestAttributeHandler())
-				    		//.ignoringRequestMatchers("/v3/api-docs/**","/v2/api-docs/**", "/swagger-ui/**")
-				    		//.ignoringRequestMatchers("/logout", "/apilogout")   // allow POST /logout without CSRF
 				    	  );
+			System.out.println("CSRF protection is enabled");
 		}
 		else
 		{
 			System.out.println("The application is self-contained, CORS remains deny-by-default and CSRF protection is enabled.");
-			
-			
-http=http
-				    
+			http=http
 				    .csrf(csrf -> 
 				    		csrf
 				    		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-				    		
 				    		.csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler()) 
-				    		
 				    	  );
-				    
-				    
 		}
 		
 		

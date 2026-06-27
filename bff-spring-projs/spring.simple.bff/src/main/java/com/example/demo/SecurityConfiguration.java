@@ -117,28 +117,13 @@ public class SecurityConfiguration {
 			};
 			
 			http=http.cors(corsCustomizer);
-			///if(swaggerUiBaseUrl==null)
-			{
-				http=http
-					    
-					    .csrf(csrf -> 
-					    		csrf
-					    		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-					    		
-					    		.csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler()) 
-					    		//.csrfTokenRequestHandler(new XorCsrfTokenRequestAttributeHandler())
-					    		//.ignoringRequestMatchers("/v3/api-docs/**","/v2/api-docs/**", "/swagger-ui/**")
-					    		//.ignoringRequestMatchers("/logout", "/apilogout")   // allow POST /logout without CSRF
-					    	  );
-				System.out.println("CSRF protection is enabled");
-			}
-//			else
-//			{
-//				  http=http
-//		            .csrf(csrf -> csrf.disable()); // Optional for testing REST
-//				  System.out.println("CSRF protection is disabled for now only when running swagger in dev mode");
-//			}
-			
+			http=http
+				    .csrf(csrf -> 
+				    		csrf
+				    		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+				    		.csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler()) 
+				    	  );
+			System.out.println("CSRF protection is enabled");
 		}
 		else
 		{
@@ -176,11 +161,14 @@ http=http
             .logout(logout -> logout
             	    .logoutUrl("/logout")
             	    .logoutSuccessHandler((req, res, auth) -> res.setStatus(200))
+            	    //logoutFailureHandler is not needed here. What could really go wrong in our simple scenario. default behaviour is fine.
             	)
             .httpBasic(Customizer.withDefaults()
-            		
-            		
-            		); // optional for API tools
+            		); // TODO: remove — not needed here. The BFF Swagger plugin handles login via
+            		   // form login, and curl/Postman/API tools can do the same. The only thing
+            		   // httpBasic() adds is support for vanilla Swagger UI's "Authorize" button,
+            		   // which this project does not use.
+                       //can use in vanilla swagger behaviour examples.
         
         http=http.exceptionHandling(ex -> ex
                 .authenticationEntryPoint((request, response, authException) -> {

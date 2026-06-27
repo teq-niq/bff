@@ -59,12 +59,12 @@ public class Teardown {
             groupsSetup.cleanupGroup("myadmin");
 
             // 5. Cleanup local files
-            File creds = new File("credentials.properties");
+            /*File creds = new File("credentials.txt");
             if (creds.exists()) {
                 if (creds.delete()) System.out.println("Deleted local credentials.properties");
             } else {
                 System.out.println("Skipping File 'credentials.properties': Not found.");
-            }
+            }*/
 
             System.out.println("=== TEARDOWN COMPLETE ===");
         } catch (Exception e) {

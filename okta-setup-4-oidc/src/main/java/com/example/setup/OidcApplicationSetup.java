@@ -465,7 +465,9 @@ public class OidcApplicationSetup {
 				props.setProperty("appId", appId);
 				props.setProperty("clientId", clientId);
 				props.setProperty("clientSecret", clientSecret);
+				props.setProperty("dummyPwd", Inputs.getDummyPwd());
 				props.setProperty("oidcappruncommand", "mvn -pl bff-spring-projs/spring.oidc.bff spring-boot:run -P berun -Dokta.tenant.id="+Inputs.getTenantId()+" -Dokta.oauth2.client-id="+clientId+" -Dokta.oauth2.client-secret="+clientSecret);
+				props.setProperty("e2eruncommand", "mvn -pl bff-spring-projs/spring.oidc.bff verify -Pe2e -Dokta.tenant.id="+Inputs.getTenantId()+" -Dokta.oauth2.client-id="+clientId+" -Dokta.oauth2.client-secret="+clientSecret+" -Dokta.test.user.email=user@example.com -Dokta.test.user.password="+Inputs.getDummyPwd());
 				
 				
 				
