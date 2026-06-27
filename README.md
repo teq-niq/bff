@@ -744,8 +744,6 @@ It may be included in a future version.
 
 # Notes and Future Work
 
-- [side-notes/test-notes.md](side-notes/test-notes.md) — Consolidated test coverage notes for both `spring.simple.bff` and `spring.oidc.bff`. A better starting point than reading the individual `mock-tests-concept.md` files buried in each project's test package (`bff-spring-projs/spring.simple.bff/src/test/...` and `bff-spring-projs/spring.oidc.bff/src/test/...`).
-- [side-notes/future-notes.md](side-notes/future-notes.md) — Planned improvements: webpack dist caching, Maven webjar module, and other pending items.
-
-Avoid creating so many 5.3x.y folders under swagger-files. Map multiple versions to a folder.   
+- Planned improvements: webpack dist caching, Maven webjar  and other pending items.
+- Avoid creating so many 5.3x.y folders under swagger-files. Map multiple versions to a folder.   
 
