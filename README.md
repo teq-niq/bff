@@ -617,7 +617,9 @@ The test covers the full redirect login flow:
 - Fills the password screen automatically
 - Asserts the padlock is locked and `/shortprofile` returns `{ loggedIn: true }`
 
-**Prerequisites:** The test user must have logged in manually at least once (Okta Verify already enrolled).
+**Prerequisites:** The test user must have logged in manually at least once (Okta Verify already enrolled). Else the test will fail for now.  Might later incorporate the first time login also into the tests.   
+
+Also remember this test is not fully automated. The Okta verify code must be manually input during the e2e.  
 
 ### Required parameters
 
