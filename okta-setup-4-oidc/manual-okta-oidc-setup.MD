@@ -52,6 +52,8 @@ Examples
 - user@example.com with group membership of mygroup, myuser.   
 - admin@example.com with group membership of mygroup, myadmin.   
 
+**Note**: Prefer using these emails. If you change to something else please change accordingly wherever else teh change is needed.   
+
 ### OIDC Application
 Expand the admin console menu and navigate to Applicatioms > Applicatioms   
 

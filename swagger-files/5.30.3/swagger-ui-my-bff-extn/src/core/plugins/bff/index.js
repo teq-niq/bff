@@ -52,8 +52,6 @@ function getCsrfTokenFromCookie(name) {
 
 
 const BffPlugin = () => () => {
-  console.log("BFF plugin factory executed")
-
   return {
     components: {
       BffEnabler,
@@ -70,30 +68,20 @@ const BffPlugin = () => () => {
 
             // 1. regular logouts for NON-BFF
             for (const schemeName of schemeList) {
-              console.log("Processing Non BFF logout for scheme:", schemeName)
-
               const def = getDefByScheme(defs, schemeName)
               if (!def) continue
 
-              console.log("defObjVal", def)
-
               if (def.scheme !== "bff") {
-                console.log("Non-BFF logout:", schemeName)
                 oriLogout([schemeName])
               }
             }
 
             // 2. BFF logout 
             for (const schemeName of schemeList) {
-              console.log("Processing BFF logout for scheme:", schemeName)
-
               const def = getDefByScheme(defs, schemeName)
               if (!def) continue
 
-              console.log("defObjVal", def)
-
               if (def.scheme === "bff" && def.logout) {
-                console.log("BFF logout :", def.logout)
 				if(def.redirectforlogin === true){
 					setTimeout(() => {
 					                 window.location.href = def.logout
@@ -104,7 +92,6 @@ const BffPlugin = () => () => {
 				else{
 					fetch(def.logout, { method: "GET", credentials: "include" })
 					     .then(() => {
-					       console.log("Inline BFF logout completed")
 						   oriLogout([schemeName]);
 					     })
 					     .catch(err => {console.error("Inline BFF logout failed", err);
@@ -118,23 +105,13 @@ const BffPlugin = () => () => {
           },
 
           authorize: (oriAuthorize, system) => async (payload) => {
-            console.log(
-              "BFF plugin authorize wrapper called with payload:",
-              JSON.stringify(payload, null, 2)
-            )
-
             const defs = system.authSelectors.definitionsToAuthorize()
             const schemeList = Array.isArray(payload)
               ? payload
               : Object.keys(payload)
 
             for (const schemeName of schemeList) {
-              console.log("Processing login for scheme:", schemeName)
-
               const def = getDefByScheme(defs, schemeName)
-              
-
-              console.log("defObjVal", JSON.stringify(def, null, 2))
 
               // Only BFF + inline login
 		
@@ -142,14 +119,8 @@ const BffPlugin = () => () => {
 				if (def.scheme === "bff" && def.redirectforlogin === false) {
 					
 					const payloadSchemaObj = payload[schemeName]
-					console.log(
-					  "payloadSchemaObj",
-					  JSON.stringify(payloadSchemaObj, null, 2)
-					)
 
 					const creds = payloadSchemaObj["value"];
-					console.log("creds", JSON.stringify(creds, null, 2));
-					console.log("creds.loggedIn", creds.loggedIn);
 				    if (creds.loggedIn !== true) {
 						// covers:
 						  // - loggedIn missing
@@ -159,8 +130,7 @@ const BffPlugin = () => () => {
 						  // perform inline login
 
 						try {
-						  console.log("BFF inline login POST:", def.login)
-	
+
 						  const body = new URLSearchParams({
 						    username: creds.username,
 						    password: creds.password,

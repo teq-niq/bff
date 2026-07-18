@@ -450,7 +450,7 @@ If needed feel free to edit the batch/shell scripts to your convenience.
 #### Launching BFF Swagger APPs
 Both the projects bff\bff-spring-projs\spring.oidc.bff and bff\bff-spring-projs\spring.simple.bff have a batch file and shell script named 
 swagger-ui-shell.bat  OR
-swagger-ui-shell.sh (I haven't yet used the .sh file. If using the .sh please adjust it as needed for now. )
+swagger-ui-shell.sh 
 
 I am using the batchfile. I launch it by right clicking on it and launching it.
 
@@ -602,7 +602,136 @@ Specifically, check the `customOpenAPI` method in each class to see how the BFF 
 
 
 
+# E2E Tests — Swagger UI BFF Login
 
+## With Okta
+
+Playwright E2E tests for the OIDC BFF Swagger UI login flow live under:
+
+`bff-spring-projs/spring.oidc.bff/swagger-bff-e2e/`
+
+The test covers the full redirect login flow:
+- Opens Swagger UI and clicks Authorize
+- Redirects to Okta, fills username, then selects "Enter a code" (Okta Verify)
+- **Pauses** — you type the 6-digit TOTP code directly in the browser and click Verify
+- Fills the password screen automatically
+- Asserts the padlock is locked and `/shortprofile` returns `{ loggedIn: true }`
+
+**Prerequisites:** The test user must have logged in manually at least once (Okta Verify already enrolled).
+
+### Required parameters
+
+| Maven `-D` flag | Env var (direct run) | Description |
+|---|---|---|
+| `-Dokta.tenant.id` | `OKTA_TENANT_ID` | Okta tenant ID, e.g. `integrator-9999999` |
+| `-Dokta.oauth2.client-id` | *(not needed for direct run)* | OIDC client ID (for BFF app) |
+| `-Dokta.oauth2.client-secret` | *(not needed for direct run)* | OIDC client secret (for BFF app) |
+| `-Dokta.test.user.email` | `TEST_USER_EMAIL` | Test user email, e.g. `user@example.com` |
+| `-Dokta.test.user.password` | `TEST_USER_PASSWORD` | Test user password |
+
+The test fails immediately with a clear error if `OKTA_TENANT_ID`, `TEST_USER_EMAIL`, or `TEST_USER_PASSWORD` are missing.
+
+### Single-port mode (Swagger served from BFF on port 8081)
+
+Maven starts and stops the BFF app automatically:
+
+```
+mvn -pl bff-spring-projs/spring.oidc.bff verify -Pe2e -Dokta.tenant.id=[TENANT_ID] -Dokta.oauth2.client-id=[CLIENT_ID] -Dokta.oauth2.client-secret=[CLIENT_SECRET] -Dokta.test.user.email=user@example.com -Dokta.test.user.password=[PASSWORD]
+```
+
+### Dev mode (Swagger on port 3201 — separate process)
+
+Start the Swagger dev server first (in a separate terminal via `swagger-ui-shell`):
+```
+npm run dev -- --port 3201
+```
+
+Then run Maven with two extra flags:
+- `-Dswaggeruiurl` — tells the BFF to allow CORS from port 3201
+- `-Dswagger.e2e.ui.url` — tells Playwright which origin to open
+
+```
+mvn -pl bff-spring-projs/spring.oidc.bff verify -Pe2e -Dokta.tenant.id=integrator-4588018 -Dokta.oauth2.client-id=[CLIENT_ID] -Dokta.oauth2.client-secret=[CLIENT_SECRET] -Dokta.test.user.email=user@example.com -Dokta.test.user.password=[PASSWORD] -Dswaggeruiurl=http://localhost:3201 -Dswagger.e2e.ui.url=http://localhost:3201
+```
+
+### Running directly (app already running)
+
+```
+cd bff-spring-projs/spring.oidc.bff/swagger-bff-e2e
+$env:OKTA_TENANT_ID="integrator-4588018"
+$env:TEST_USER_EMAIL="user@example.com"
+$env:TEST_USER_PASSWORD="[PASSWORD]"
+npx playwright test --headed
+```
+
+For dev mode also set:
+```
+$env:SWAGGER_UI_URL="http://localhost:3201"
+```
+## Simple security
+
+Playwright E2E tests for the Simple Security BFF Swagger UI login flow live under:
+
+`bff-spring-projs/spring.simple.bff/swagger-bff-e2e/`
+
+The test covers the in-app form login flow (no external redirect):
+- Opens Swagger UI and clicks Authorize
+- BFF extension shows the custom login form (no redirect — `redirectforlogin: false`)
+- Fills username and password in the form and submits
+- Asserts the padlock is locked and `/shortprofile` returns `{ loggedIn: true }`
+- Asserts `/secured/user` returns 200 for a user with `ROLE_myuser`
+- Navigates to `/apilogout?source=swagger` — BFF clears the session
+- Asserts the padlock is unlocked and `/shortprofile` returns `{ loggedIn: false }`
+
+**Prerequisites:** The BFF app must be running on port 8080 (or Playwright must start it via Maven).  
+No external IdP is involved. Credentials are defined in `SecurityConfiguration.java`.
+
+### Required parameters
+
+| Maven `-D` flag | Env var (direct run) | Default | Description |
+|---|---|---|---|
+| `-Dtest.user.username` | `TEST_USER_USERNAME` | `user` | Login username |
+| `-Dtest.user.password` | `TEST_USER_PASSWORD` | `password` | Login password |
+
+Unlike the OIDC flow, none of these are strictly required — the test can run with the defaults since the users are hardcoded in `SecurityConfiguration.java`.
+
+### Single-port mode (Swagger served from BFF on port 8080)
+
+Maven starts and stops the BFF app automatically:
+
+```
+mvn -pl bff-spring-projs/spring.simple.bff verify -Pe2e
+```
+
+### Dev mode (Swagger on port 3200 — separate process)
+
+Start the Swagger dev server first (in a separate terminal via `swagger-ui-shell`):
+```
+npm run dev
+```
+
+Then run Maven with two extra flags:
+- `-Dswaggeruiurl` — tells the BFF to allow CORS from port 3200
+- `-Dswagger.e2e.ui.url` — tells Playwright which origin to open
+
+```
+mvn -pl bff-spring-projs/spring.simple.bff verify -Pe2e -Dswaggeruiurl=http://localhost:3200 -Dswagger.e2e.ui.url=http://localhost:3200
+```
+
+### Running directly (app already running)
+
+```
+cd bff-spring-projs/spring.simple.bff/swagger-bff-e2e
+npx playwright test --headed
+```
+
+For dev mode also set:
+```
+$env:SWAGGER_UI_URL="http://localhost:3200"
+```
+
+
+---
 # What’s Not Currently Included
 
 - Session-Token Synchronization: 
@@ -611,4 +740,10 @@ Implementing this correctly depends on the specific requirements and constraints
 It may be included in a future version.  
 - Spring Boot 4 migration: A manual Spring Security OIDC configuration could enable Spring Boot 4 today, but this would replace the Okta starter with custom code. We have deferred this until official Okta support is available.
 
+---
+
+# Notes and Future Work
+
+- Planned improvements: webpack dist caching, Maven webjar  and other pending items.
+- Avoid creating so many 5.3x.y folders under swagger-files. Map multiple versions to a folder.   
 

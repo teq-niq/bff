@@ -4,3 +4,8 @@
 /credentials.properties
 
 /credentials.txt
+
+/.claude
+/.github/agents
+/.github/copilot-instructions.md
+/AGENTS.md

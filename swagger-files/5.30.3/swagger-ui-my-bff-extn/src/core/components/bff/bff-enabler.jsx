@@ -40,11 +40,9 @@ export default class BffEnabler extends React.Component {
           const profileUrl = def["profilecheck"];
           if (profileUrl) {
             // fetch login status
-			console.log("BFF checking login status at:", profileUrl);
             const check = fetch(profileUrl, { credentials: "include", cache: "no-store" })
               .then((resp) => {
                 if (!resp.ok){
-					console.log("Network response was not ok at:", profileUrl, " status:", resp.status);
 					throw new Error("Network response was not ok");
 				} 
 				const respJson=resp.json();
@@ -52,9 +50,7 @@ export default class BffEnabler extends React.Component {
                 return respJson;
               })
               .then((json) => {
-				console.log("BFF got", JSON.stringify(json, null, 2));
                 const loggedIn = !!json?.loggedIn;
-				console.log("BFF noted logged in=", loggedIn);
                 if (loggedIn) {
                   
 				  const authObj = {
@@ -66,11 +62,6 @@ export default class BffEnabler extends React.Component {
 				  };
 				 // this.props.authActions.logout({ [key]: {} });
 				   this.props.authActions.authorize(authObj);
-				   console.log("BFF user is logged in, authObj:", JSON.stringify(authObj, null, 2));
-				   console.log("ok");
-				   console.log("json:", JSON.stringify(json, null, 2));
-                } else {
-                  console.log("BFF user is not logged in");
                 }
               })
               .catch((err) => {

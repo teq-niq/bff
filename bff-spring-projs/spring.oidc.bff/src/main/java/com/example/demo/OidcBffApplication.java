@@ -47,7 +47,7 @@ import jakarta.servlet.http.HttpSession;
 @RestController
 public class OidcBffApplication {
 	
-	@Value("${okta.oauth2.issuer}")
+	@Value("${okta.oauth2.issuer:#{null}}")
     private String issuer; // (null if not set)
 	
 	@Value("${febaseurl:#{null}}")

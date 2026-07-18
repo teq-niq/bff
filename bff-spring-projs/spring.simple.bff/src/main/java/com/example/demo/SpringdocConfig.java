@@ -82,7 +82,7 @@ public class SpringdocConfig {
 		extensions.put("profilecheck", "http://localhost:8080/shortprofile");
 		extensions.put("login", "http://localhost:8080/login");
 		extensions.put("redirectforlogin", false);
-		extensions.put("logout", "http://localhost:8080/logout");
+		extensions.put("logout", "http://localhost:8080/apilogout?source=swagger");
 		extensions.put("redirectforlogout", false);
 	
 		components = components.addSecuritySchemes(bffScheme.getName(), bffScheme);
